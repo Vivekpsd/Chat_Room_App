@@ -33,7 +33,17 @@ function outputRoomName(room) {
 // Add users to DOM
 function outputRoomUsers(users) {
   userList.innerHTML = `
-    ${users.map((user) => `<li>${user.username}</li>`).join('')}
+    ${users
+      .map(
+        (user) =>
+          `<li>${user.username} &nbsp;
+            <span  style="height:2px; width:2px; background-color:#00FFFF; border-radius:50%; 
+            box-shadow: 0 0 20px 5px #00FFFF, 0 0 30px 6px #00FFFF; color:#00FFFF; font-size:5px;">
+              ----
+            </span>
+          </li>`
+      )
+      .join('')}
     `;
 }
 

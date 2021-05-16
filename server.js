@@ -2,6 +2,16 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const http = require('http');
+const mongoose = require('mongoose');
+const mongoDB =
+  'mongodb+srv://vivek1234:vivek1234@todo-app.hfxsz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+
+mongoose
+  .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('MongoDB Connected');
+  })
+  .catch((err) => console.log(err.message));
 
 const server = http.createServer(app);
 const socketio = require('socket.io');
